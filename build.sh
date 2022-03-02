@@ -39,8 +39,8 @@ cp -vr "$FILES" "$ROOT"
 
 mount --bind "$ROOT" "$ROOT"
 
-echo "## Installing keyring package..."
-pacstrap "$ROOT" asahilinux-keyring
+echo "## Installing base packages..."
+pacstrap "$ROOT" asahilinux-keyring iwd
 
 run_scripts() {
     group="$1"
