@@ -34,7 +34,7 @@ rm -rf "$ROOT"
 mkdir -p "$ROOT"
 
 echo "## Unpacking base image..."
-bsdtar -xpf "$DL/$BASE_IMAGE" -C "$ROOT" || true
+bsdtar -xpf "$DL/$BASE_IMAGE" -C "$ROOT"
 
 cp -vr "$FILES" "$ROOT"
 
