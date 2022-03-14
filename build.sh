@@ -52,6 +52,20 @@ run_scripts() {
     done
 }
 
+make_uefi_image() {
+    imgname="$1"
+    img="$IMAGES/$imgname"
+    mkdir -p "$img"
+    echo "## Making image $imgname"
+    echo "### Creating EFI system partition tree..."
+    mkdir -p "$img/esp"
+    cp -r "$ROOT"/boot/efi/m1n1 "$img/esp/"
+    echo "### Compressing..."
+    rm -f "$img".zip
+    ( cd "$img"; zip -r ../"$imgname".zip * )
+    echo "### Done"
+}
+
 make_image() {
     imgname="$1"
     img="$IMAGES/$imgname"
@@ -97,3 +111,5 @@ make_image "asahi-base"
 
 #run_scripts plasma
 #make_image "asahi-plasma"
+
+make_uefi_image "uefi-only"
