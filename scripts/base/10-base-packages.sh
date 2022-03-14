@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+mkdir -p "/boot/efi"
+
 pacman --noconfirm -R linux-aarch64
 pacman --noconfirm -Syu
-pacman --noconfirm -S asahi-scripts mkinitcpio grub iwd
+pacman --noconfirm -S asahi-scripts m1n1-uboot mkinitcpio grub iwd
