@@ -25,7 +25,8 @@ mkdir -p "$DL" "$IMG"
 
 if [ ! -e "$DL/$BASE_IMAGE" ]; then
     echo "## Downloading base image..."
-    wget "$BASE_IMAGE_URL" -O "$DL/$BASE_IMAGE"
+    wget -c "$BASE_IMAGE_URL" -O "$DL/$BASE_IMAGE.part"
+    mv "$DL/$BASE_IMAGE.part" "$DL/$BASE_IMAGE"
 fi
 
 umount "$ROOT" 2>/dev/null || true
