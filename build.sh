@@ -78,13 +78,14 @@ make_image() {
         --exclude /etc/machine-id \
         --exclude '/boot/efi/*' \
         "$ROOT/" "$IMG/"
-    echo "### Runnig grub-mkconfig..."
+    echo "### Running grub-mkconfig..."
     arch-chroot "$IMG" grub-mkconfig -o /boot/grub/grub.cfg
     echo "### Unmounting..."
     umount "$IMG"
     echo "### Creating EFI system partition tree..."
     mkdir -p "$img/esp/EFI/BOOT"
     cp "$ROOT"/boot/grub/arm64-efi/core.efi "$img/esp/EFI/BOOT/BOOTAA64.EFI"
+    cp -r "$ROOT"/boot/efi/m1n1 "$img/esp/"
     echo "### Compressing..."
     rm -f "$img".zip
     ( cd "$img"; zip -r ../"$imgname".zip * )
