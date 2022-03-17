@@ -1,0 +1,4 @@
+if [[ $TERM == "screen" ]]; then
+  print -nR $'\033k'$1$'\033'\\
+fi
+print -nR $'\033]0;'$1$'\a'
