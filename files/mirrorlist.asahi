@@ -2,9 +2,12 @@
 # Asahi Linux repository mirrorlist
 #
 
-# Japan
-Server = https://jp.mirror.asahilinux.org/$arch/$repo
+# Worldwide CDN (bunny.net)
+Server = https://cdn.asahilinux.org/$arch/$repo
 
 # Germany
 Server = https://de.mirror.asahilinux.org/$arch/$repo
+
+# Japan
+Server = https://jp.mirror.asahilinux.org/$arch/$repo
 
