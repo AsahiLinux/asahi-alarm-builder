@@ -2,7 +2,7 @@
 set -e
 
 pacman --noconfirm -S \
-    arch-install-scripts pacman-contrib \
+    asahi-desktop-meta arch-install-scripts pacman-contrib \
     sudo zsh vim wget htop unzip strace rsync powertop git \
     man-db alsa-tools alsa-utils evtest iotop \
     networkmanager \
