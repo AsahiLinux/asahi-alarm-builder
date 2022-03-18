@@ -102,7 +102,7 @@ make_image() {
     cp -r "$ROOT"/boot/efi/m1n1 "$img/esp/"
     echo "### Compressing..."
     rm -f "$img".zip
-    ( cd "$img"; zip -r ../"$imgname".zip * )
+    ( cd "$img"; zip -1 -r ../"$imgname".zip * )
     echo "### Done"
 }
 
