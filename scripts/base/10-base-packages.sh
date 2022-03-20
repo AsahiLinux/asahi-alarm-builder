@@ -5,4 +5,4 @@ mkdir -p "/boot/efi"
 
 pacman --noconfirm -R linux-aarch64
 pacman --noconfirm -Syu
-pacman --noconfirm -S asahi-scripts m1n1 uboot-asahi mkinitcpio grub iwd asahi-meta
+pacman --noconfirm -S asahi-scripts m1n1 uboot-asahi mkinitcpio grub iwd
