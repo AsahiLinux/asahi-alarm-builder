@@ -40,8 +40,10 @@ cp -r "$FILES" "$ROOT"
 
 mount --bind "$ROOT" "$ROOT"
 
+cp "$ROOT"/etc/pacman.d/mirrorlist{,.orig}
+
 echo "## Installing keyring package..."
-pacstrap "$ROOT" asahilinux-keyring
+pacstrap -G "$ROOT" asahilinux-keyring
 
 run_scripts() {
     group="$1"
@@ -92,6 +94,7 @@ make_image() {
         --exclude /etc/machine-id \
         --exclude '/boot/efi/*' \
         "$ROOT/" "$IMG/"
+    mv -f "$IMG"/etc/pacman.d/mirrorlist{.orig,}
     echo "### Running grub-mkconfig..."
     arch-chroot "$IMG" grub-mkconfig -o /boot/grub/grub.cfg
     echo "### Unmounting..."
