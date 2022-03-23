@@ -3,6 +3,7 @@ set -e
 
 cat >/etc/os-release <<EOF
 NAME="Asahi Linux"
+PRETTY_NAME="Asahi Linux"
 ID=asahi
 ID_LIKE=arch
 BUILD_ID=rolling
