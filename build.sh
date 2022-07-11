@@ -20,6 +20,15 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+clean_mounts() {
+	while grep -q "$ROOT/[^ ]" /proc/mounts; do
+		cat /proc/mounts | grep "$ROOT" | cut -d" " -f2 | xargs umount || true
+		sleep 0.1
+	done
+}
+
+clean_mounts
+
 umount "$IMG" 2>/dev/null || true
 mkdir -p "$DL" "$IMG"
 
@@ -51,6 +60,8 @@ run_scripts() {
     for i in "scripts/$group/"*; do
         echo "### Running $i"
         arch-chroot "$ROOT" /bin/bash <"$i"
+	# Work around some devtmpfs shenanigans... something keeps that mount in use?
+	clean_mounts
     done
 }
 
