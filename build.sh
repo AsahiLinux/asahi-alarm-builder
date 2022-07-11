@@ -94,6 +94,7 @@ make_image() {
         --exclude /etc/machine-id \
         --exclude '/boot/efi/*' \
         "$ROOT/" "$IMG/"
+    sed -i s/asahi-dev/asahi/g "$IMG"/etc/pacman.conf
     mv -f "$IMG"/etc/pacman.d/mirrorlist{.orig,}
     echo "### Running grub-mkconfig..."
     arch-chroot "$IMG" grub-mkconfig -o /boot/grub/grub.cfg
