@@ -13,4 +13,5 @@ pacman --noconfirm -S \
     noto-fonts noto-fonts-cjk noto-fonts-emoji \
     powerdevil plasma-nm networkmanager-qt \
     feh calamares asahi-calamares-configs \
-    firefox
+    firefox \
+    bluedevil bluez-utils pulseaudio-bluetooth bluez-tools
