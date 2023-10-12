@@ -7,7 +7,7 @@ pacman --noconfirm -S \
     man-db alsa-tools alsa-utils evtest iotop \
     networkmanager \
     xorg-server xf86-input-evdev xorg-xinput xorg-xinit xorg-xdpyinfo \
-    xkeyboard-config-asahi mesa-demos mesa-utils \
+    mesa-demos mesa-utils \
     plasma-meta konsole dolphin sddm kde-applications-meta \
     pipewire pipewire-jack pavucontrol wireplumber phonon-qt5-gstreamer \
     noto-fonts noto-fonts-cjk noto-fonts-emoji \
