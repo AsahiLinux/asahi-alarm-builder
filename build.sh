@@ -124,7 +124,4 @@ make_image() {
 run_scripts base
 make_image "asahi-base"
 
-run_scripts plasma
-make_image "asahi-plasma"
-
 make_uefi_image "uefi-only"
