@@ -70,6 +70,8 @@ make_uefi_image() {
     img="$IMAGES/$imgname"
     mkdir -p "$img"
     echo "## Making image $imgname"
+    echo "### Adding Packages List..."
+    cp "$ROOT/.manifest" "$img/packages.list"
     echo "### Creating EFI system partition tree..."
     mkdir -p "$img/esp"
     cp -r "$ROOT"/boot/efi/m1n1 "$img/esp/"
